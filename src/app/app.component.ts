@@ -17,10 +17,6 @@ export class AppComponent {
   gameEnded = false;
   gameEndedMessage = "";
 
-  constructor() {
-    //this.createBoard(this.width, this.height);
-  }
-
   startGame(width: string, height: string, score: string) {
     this.width = parseInt(width)
     this.height = parseInt(height)
