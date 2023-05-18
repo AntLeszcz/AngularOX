@@ -55,7 +55,7 @@ export class AppComponent {
     console.log(i, j);
     console.log(this.board);
 
-    return i >= 0 && j >= 0 && i < this.width && j < this.height && this.board[i][j].content === ""
+    return i >= 0 && j >= 0 && i < this.height && j < this.width && this.board[i][j].content === ""
   }
 
   cpuMove() {
@@ -123,8 +123,8 @@ export class AppComponent {
       }
     }
 
-    for (let i = 0; i < this.width; i++) {
-      for (let j = 0; j < this.height; j++) {
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
         if (this.board[i][j].content === "X") {
           let helper = [{ x: i - 1, y: j - 1 }, { x: i, y: j - 1 }, { x: i + 1, y: j - 1 }, { x: i - 1, y: j }, { x: i + 1, y: j }, { x: i - 1, y: j + 1 }, { x: i, y: j + 1 }, { x: i + 1, y: j + 1 }]
           helper = helper.sort(() => Math.random() - 0.5);
@@ -140,8 +140,8 @@ export class AppComponent {
 
     let isLegal = false
     do {
-      const i = Math.round(Math.random() * this.width)
-      const j = Math.round(Math.random() * this.height)
+      const i = Math.round(Math.random() * this.height)
+      const j = Math.round(Math.random() * this.width)
       isLegal = this.legalMove(i, j)
       if (isLegal) {
         this.makeMove(i, j, "X")
@@ -220,8 +220,8 @@ export class AppComponent {
     if (this.userScore >= this.maxScore) this.displayGameEnd("Wygrałeś!")
     else if (this.cpuScore >= this.maxScore) this.displayGameEnd("Przegrałeś!")
 
-    for (let i = 0; i < this.width; i++) {
-      for (let j = 0; j < this.height; j++) {
+    for (let i = 0; i < this.height; i++) {
+      for (let j = 0; j < this.width; j++) {
         if (this.board[i][j].content === "") return;
       }
     }

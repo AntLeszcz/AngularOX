@@ -1,8 +1,8 @@
 <!-- Toolbar -->
-<div *ngIf="gameSettingUp; else gameContainer">
-  Szerokość: <input type="number" min="0" max="100" [value]="width" #setupWidth>
-  Wysokość: <input type="number" min="0" max="100" [value]="height" #setupHeight>
-  Max liczba punktów: <input type="number" min="0" max="100" [value]="maxScore" #setupScore>
+<div id="setup" *ngIf="gameSettingUp; else gameContainer">
+  <p>Szerokość: <input type="number" min="1" max="100" [value]="width" #setupWidth></p>
+  <p>Wysokość: <input type="number" min="1" max="100" [value]="height" #setupHeight></p>
+  <p>Max liczba punktów: <input type="number" min="1" max="100" [value]="maxScore" #setupScore></p>
   <button (click)="startGame(setupWidth.value, setupHeight.value, setupScore.value)">OK</button>
 </div>
 
