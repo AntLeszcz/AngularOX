@@ -36,7 +36,7 @@ export class AppComponent {
   }
 
   handleClick(i: number, j: number) {
-    if (this.legalMove(i, j)) {
+    if (!this.gameEnded && this.legalMove(i, j)) {
       this.makeMove(i, j, "O")
 
       this.cpuMove()
